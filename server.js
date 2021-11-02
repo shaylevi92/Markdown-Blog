@@ -4,8 +4,7 @@ const Article = require('./models/article')
 const articleRouter = require('./routes/articles')
 const methodOverride = require('method-override')
 const app = express()
-const PORT = process.env.PORT || 8080; // Step 1
-
+const PORT = process.env.PORT || 8080;
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/blog' , {
   useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true
