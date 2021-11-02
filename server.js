@@ -4,8 +4,10 @@ const Article = require('./models/article')
 const articleRouter = require('./routes/articles')
 const methodOverride = require('method-override')
 const app = express()
+const PORT = process.env.PORT || 8080; // Step 1
 
-mongoose.connect('mongodb://localhost/blog', {
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/blog' , {
   useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true
 })
 
@@ -20,4 +22,4 @@ app.get('/', async (req, res) => {
 
 app.use('/articles', articleRouter)
 
-app.listen(5000)
+app.listen(PORT)
